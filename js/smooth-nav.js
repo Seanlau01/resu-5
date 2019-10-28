@@ -1,20 +1,22 @@
 !function(){
     var view=document.querySelector('nav.menu')
-    view.style.border='1px solid red'
-    let aTags = view.querySelectorAll('nav.menu > ul > li >a')
-    function animate(time) {
-        requestAnimationFrame(animate);
-        TWEEN.update(time);
-    }
-    requestAnimationFrame(animate);
-    
-    for (let i = 0; i < aTags.length; i++) {
-        aTags[i].onclick = function (x) {
-            x.preventDefault()
-            let a = x.currentTarget
-            let href = a.getAttribute('href') //'#siteAbout'
-            let element = document.querySelector(href)
-            let top = element.offsetTop
+    var controller={
+        view:null,
+        aTags:null,
+        init:function(view){
+            this.view=view
+            this.initAnimation()
+            this.bindEvents()
+        },
+        initAnimation:function(){
+            function animate(time) {
+                requestAnimationFrame(animate);
+                TWEEN.update(time);
+            }
+            requestAnimationFrame(animate);
+        } ,
+        scrollToElement:function(element){
+    let top = element.offsetTop
             // 以下这句话的效果同于上面四句 let
             // top=document.querySelector(x.currentTarget.getAttribute('href')).offsetTop
     let currentTop=window.scrollY
@@ -28,7 +30,20 @@
         .onUpdate(function () {
             window.scrollTo(0,coords.y);
         })
-        .start();
-        }
+        .start();//开始缓动
+        },
+ bindEvents:function(){
+    let aTags = view.querySelectorAll('nav.menu > ul > li >a')
+    for (let i = 0; i < aTags.length; i++) {
+        aTags[i].onclick = function (x) {
+            x.preventDefault()
+            let a = x.currentTarget
+            let href = a.getAttribute('href') //'#siteAbout'
+            let element = document.querySelector(href)
+            this.scrollToElement(element)
+         }
+       }
+     },
     }
-}.call()
+    controller.init(view)
+}

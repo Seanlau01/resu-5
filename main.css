@@ -126,7 +126,7 @@ section.portfolio .swiper-button-prev, section.portfolio .swiper-button-next{
     width:60px;
     height:60px;
     border-radius:50%;
-   
+    margin-top:54px;
 }
 section.portfolio .swiper-button-prev{
     right:100%;
