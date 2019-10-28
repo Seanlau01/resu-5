@@ -1,4 +1,5 @@
- //添加 offset 类
+!function(){
+   //添加 offset 类
  let specialTags=document.querySelectorAll('[data-x]')
  for(let i=0;i<specialTags.length;i++){
         specialTags[i].classList.add('offset')                    
@@ -39,3 +40,5 @@ window.addEventListener('scroll', function (x) {
                             x.currentTarget.classList.remove('active')
                         }
                     }
+ }.call()
+ 
