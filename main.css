@@ -102,7 +102,8 @@ main { margin-top: -340px;}
 .skills,
 .portfolio{max-width: 940px;margin-left: auto;margin-right: auto; margin-top: 60px;}
 .skills > h2,
-.portfolio>h2 { text-align: center; font-size: 34px; color: #3d4451; font-weight: 600; line-height: 1.2;}
+.portfolio > h2,
+.message > h2 { text-align: center; font-size: 34px; color: #3d4451; font-weight: 600; line-height: 1.2;}
 .skills h3{font-size:14px; line-height: 1.1;padding-right: 40px;}
 .progressbar{ height:5px;width:100%; background:#fae1e1;border-radius: 2px;margin: 4px 0 40px ;overflow:hidden}
 .progress{ height:100%;background:#e6686a;width:70%;border-radius: 2px;transition: all 1s;transform:translateX(0);}
@@ -142,4 +143,14 @@ section.portfolio .swiper-button-next{
     fill: currentColor;
     overflow: hidden;
  }
-   
+ section.message .messageList{
+  width:700px;
+  margin:0 auto;
+  list-style-type:none;
+  background: #F4F4F4;
+  border-top:1px solid #ECECEC;
+ } 
+ section.message>ol.messageList>li{
+     padding:16px;
+     border-bottom:1px solid #B6B4B6;
+ }
