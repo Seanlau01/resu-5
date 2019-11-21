@@ -1,23 +1,18 @@
 !function(){
     var model={
         //获取数据
-        init:function(){
-           
+        init:function(){  
             var { Query, User } = AV;
             AV.init({
               appId: "bo3HiyTYNDIePoQjP9XTWPzM-gzGzoHsz",
               appKey: "024wFdhqr0si8z01BwSTwG1v",
             })
         },
-        fetch:function(){
-            
+        fetch:function(){    
             var query = new AV.Query('Message');
             return query.find() //Promise对象
         },
-       
-       
         save: function(name,content){
-            
             var Message=AV.Object.extend('Message');
             var message=new Message();
             return message.save({  //Promise对象
@@ -26,9 +21,7 @@
             })
         }
 }
-
-    var view=document.querySelector('section.message')
-
+    var view=View('section.message')
     var controller={
         view:null,
         model:null,
@@ -64,7 +57,6 @@
         }) 
      },
     saveMessage:function(){
-
         let myForm=this.form
         let name=myForm.querySelector('input[name=name]').value
         let content=myForm.querySelector('input[name=content]').value
@@ -79,7 +71,7 @@
     }
  }
   controller.init(view,model) 
-
+  
 }.call()
 
 
