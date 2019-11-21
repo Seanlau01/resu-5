@@ -1,24 +1,24 @@
 !function(){
     var model={
-        init:function(){  
+        init:function(){
             var { Query, User } = AV;
             AV.init({
               appId: "bo3HiyTYNDIePoQjP9XTWPzM-gzGzoHsz",
               appKey: "024wFdhqr0si8z01BwSTwG1v",
             })
-        },
-        fetch:function(){    
-            var query = new AV.Query('X');
-            return query.find() 
-        },
-        save: function(name){
-            var Message=AV.Object.extend('X');
-            var message=new Message();
-            return message.save({  
-                'name':name
-            })
-        }
-}
+           },
+           fetch:function(){
+               var query=new AV.Query('X');
+               return query.find()
+           },
+           save:function(name){
+               var Message=AV.Object.extend('X');
+               var message=new Message();
+               return message.save({
+                   'name':name
+               })
+           }
+    }
     var view=View('#topNavBar')
      var controller={
         view:null,

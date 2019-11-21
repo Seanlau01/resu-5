@@ -1,15 +1,18 @@
 !function(){
-    var model=Model({resouceName:'Message'})
+    var model=Model({resourceName:'Message'})
+
     var view=View('section.message')
+
     var controller=Controller({
         messageList:null,
         form:null,
-        init: function(view,controller){ 
+        init: function(view,controller){
             this.messageList=view.querySelector('#messageList')
             this.form=view.querySelector('form')
             this.loadMessages()
         },
         loadMessages:function(){
+           
             this.model.fetch().then(
             (messages)=>{
             let array=messages.map((item)=>item.attributes)
@@ -22,12 +25,14 @@
         )
      },
      bindEvents:function(){
+    
         this.form.addEventListener('submit',(e)=>{
             e.preventDefault()
             this.saveMessage()
         }) 
      },
     saveMessage:function(){
+
         let myForm=this.form
         let name=myForm.querySelector('input[name=name]').value
         let content=myForm.querySelector('input[name=content]').value
