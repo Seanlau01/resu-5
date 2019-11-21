@@ -1,21 +1,15 @@
 !function(){
     var model=Model({resouceName:'Message'})
     var view=View('section.message')
-    var controller={
-        view:null,
-        model:null,
+    var controller=Controller({
         messageList:null,
-        init: function(view,model){ 
-            this.view=view
-            this.model=model
+        form:null,
+        init: function(view,controller){ 
             this.messageList=view.querySelector('#messageList')
             this.form=view.querySelector('form')
-            this.model.init()
             this.loadMessages()
-            this.bindEvents()
         },
         loadMessages:function(){
-           
             this.model.fetch().then(
             (messages)=>{
             let array=messages.map((item)=>item.attributes)
@@ -46,7 +40,7 @@
             console.log(object)
         })
     }
- }
+ })
   controller.init(view,model) 
 
 }.call()
